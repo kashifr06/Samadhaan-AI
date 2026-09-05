@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+}
+
+body {
+  background-color: #0B0E14;
+  color: #E2E8F0;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: #2D3748;
+  border-radius: 10px;
+}
+
+@layer components {
+  .glass {
+    background: rgba(21, 27, 38, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  .border-cyan {
+    border-color: rgba(34, 211, 238, 0.3);
+  }
+  .border-blue {
+    border-color: rgba(59, 130, 246, 0.3);
+  }
+}

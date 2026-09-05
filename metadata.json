@@ -1,0 +1,6 @@
+{
+  "name": "SAMADHAAN AI",
+  "description": "Transforms local societal problems into validated, collaborative innovation projects.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
