@@ -31,12 +31,12 @@ export function createFirebaseClientConfig(env: FirebaseClientEnv = (import.meta
   }
 
   return {
-    apiKey: String(env.VITE_FIREBASE_API_KEY || 'demo-api-key'),
-    authDomain: String(env.VITE_FIREBASE_AUTH_DOMAIN || 'demo.firebaseapp.com'),
-    projectId: String(env.VITE_FIREBASE_PROJECT_ID || 'demo-project'),
-    storageBucket: String(env.VITE_FIREBASE_STORAGE_BUCKET || 'demo.appspot.com'),
-    messagingSenderId: String(env.VITE_FIREBASE_MESSAGING_SENDER_ID || '000000000000'),
-    appId: String(env.VITE_FIREBASE_APP_ID || 'demo-app-id'),
+    apiKey: String(env.VITE_FIREBASE_API_KEY || ''),
+    authDomain: String(env.VITE_FIREBASE_AUTH_DOMAIN || ''),
+    projectId: String(env.VITE_FIREBASE_PROJECT_ID || ''),
+    storageBucket: String(env.VITE_FIREBASE_STORAGE_BUCKET || ''),
+    messagingSenderId: String(env.VITE_FIREBASE_MESSAGING_SENDER_ID || ''),
+    appId: String(env.VITE_FIREBASE_APP_ID || ''),
   };
 }
 

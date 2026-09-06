@@ -11,16 +11,17 @@ import { isDemoModeEnabled, parseDemoRoleRequest } from './src/server/demoMode';
 import { normalizeUserRole } from './src/types';
 
 // Initialize Firebase Admin
-initializeFirebaseAdmin();
-const db = getFirestore();
+const firebaseApp = initializeFirebaseAdmin();
+const SAMADHAAN_DATABASE_ID = process.env.FIREBASE_FIRESTORE_DATABASE_ID || 'ai-studio-samadhaanai-046be4e0-6c3e-4765-a455-335298adef91';
+const db = getFirestore(firebaseApp, SAMADHAAN_DATABASE_ID);
 const auth = getAuth();
 
 // Gemini
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || 'dummy_key' });
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
 
 async function startServer() {
   const app = express();
-  const PORT = 3000;
+  const PORT = process.env.PORT ? parseInt(process.env.PORT) : 3000;
 
   app.use(cors());
   app.use(express.json());
