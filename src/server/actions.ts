@@ -1,6 +1,6 @@
 import { FieldValue } from 'firebase-admin/firestore';
 import { GoogleGenAI } from '@google/genai';
-import { ProjectStatus, ProblemStatus } from '../types';
+import { ProjectStatus, ProblemStatus, normalizeUserRole } from '../types';
 
 export const handleAction = async (db: any, ai: GoogleGenAI, action: string, payload: any, user: any) => {
   const safeWrite = async (collection: string, id: string, data: any) => {
@@ -13,7 +13,7 @@ export const handleAction = async (db: any, ai: GoogleGenAI, action: string, pay
   
   // Role authorization
   const userRecord = await getDoc('users', user.uid);
-  const role = userRecord?.role || 'CITIZEN';
+  const role = normalizeUserRole(userRecord?.role) || 'CITIZEN';
   const entityId = userRecord?.entityId || user.uid; // e.g. universityId or partnerId
 
   if (action === 'addProblem') {

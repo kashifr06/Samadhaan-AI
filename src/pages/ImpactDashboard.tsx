@@ -134,12 +134,16 @@ export function ImpactDashboard() {
         </div>
 
         <div className="glass p-6 rounded-2xl border-slate-800">
-          <div className="flex items-center justify-between mb-6">
-            <h3 className="text-sm font-bold text-white uppercase tracking-widest">Average Improvements (Before vs After)</h3>
-            <span className="bg-slate-900 text-slate-500 text-[9px] px-2 py-1 rounded border border-slate-800 uppercase tracking-widest font-bold">Demo Data</span>
+          <div className="flex items-start justify-between mb-4">
+            <div>
+              <h3 className="text-sm font-bold text-white uppercase tracking-widest">Illustrative Deployment Outcome</h3>
+              <p className="text-xs text-slate-400 mt-1">Example: Waterlogging Mitigation System</p>
+              <p className="text-[10px] text-slate-500 mt-1 max-w-[250px]">Illustrative metrics demonstrating how Samadhaan measures impact after deployment. Not real-world measured results.</p>
+            </div>
+            <span className="bg-slate-900 text-slate-500 text-[9px] px-2 py-1 rounded border border-slate-800 uppercase tracking-widest font-bold mt-1">Illustrative / Demo Data</span>
           </div>
           
-          <div className="flex flex-col justify-center h-64 space-y-8">
+          <div className="flex flex-col justify-center h-52 space-y-8">
             <div>
               <div className="flex justify-between items-end mb-2">
                 <span className="text-xs font-bold text-slate-300 uppercase tracking-widest">Waterlogging Incidents</span>

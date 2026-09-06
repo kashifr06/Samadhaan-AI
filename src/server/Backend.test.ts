@@ -74,6 +74,12 @@ describe('Backend Actions - Adversarial', () => {
     await expect(handleAction(mockDb, mockAi, 'validateProblem', { id: 'p1' }, getCit())).rejects.toThrow('Unauthorized');
   });
 
+  it('2b. client payload cannot elevate a citizen role', async () => {
+    memoryDb['samadhaan_problems']['p1'] = { id: 'p1', status: ProblemStatus.PENDING_GOVERNMENT };
+    await expect(handleAction(mockDb, mockAi, 'validateProblem', { id: 'p1', role: 'GOVERNMENT' }, getCit())).rejects.toThrow('Unauthorized');
+    expect(memoryDb['samadhaan_problems']['p1'].status).toBe(ProblemStatus.PENDING_GOVERNMENT);
+  });
+
   it('3. Citizen cannot deploy project', async () => {
     memoryDb['samadhaan_projects']['proj1'] = { id: 'proj1', status: ProjectStatus.READY_FOR_DEPLOYMENT };
     await expect(handleAction(mockDb, mockAi, 'deployProject', { projectId: 'proj1' }, getCit())).rejects.toThrow('Unauthorized');

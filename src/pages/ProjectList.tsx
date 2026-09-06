@@ -13,9 +13,9 @@ export function ProjectList() {
 
   // For Demo, filter if University or Industry
   let displayProjects = projects;
-  if (role === 'University') {
+  if (role === 'UNIVERSITY') {
     displayProjects = projects.filter(p => p.universityId === 'UNI-001');
-  } else if (role === 'Industry') {
+  } else if (role === 'INDUSTRY') {
     displayProjects = projects;
   }
   

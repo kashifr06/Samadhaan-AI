@@ -21,7 +21,7 @@ import { ImpactDashboard } from './pages/ImpactDashboard';
 function RoleBasedRouter() {
   const { role } = useAppContext();
   
-  if (role === 'Citizen') {
+  if (role === 'CITIZEN') {
     return (
       <Routes>
         <Route path="/" element={<Shell />}>
@@ -36,7 +36,7 @@ function RoleBasedRouter() {
     );
   }
   
-  if (role === 'Government') {
+  if (role === 'GOVERNMENT') {
     return (
       <Routes>
         <Route path="/" element={<Shell />}>
@@ -52,7 +52,7 @@ function RoleBasedRouter() {
     );
   }
 
-  if (role === 'University') {
+  if (role === 'UNIVERSITY') {
     return (
       <Routes>
         <Route path="/" element={<Shell />}>
@@ -66,7 +66,7 @@ function RoleBasedRouter() {
     );
   }
 
-  if (role === 'Industry') {
+  if (role === 'INDUSTRY') {
     return (
       <Routes>
         <Route path="/" element={<Shell />}>

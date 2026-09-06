@@ -14,9 +14,9 @@ import {
   Handshake,
   BarChart3
 } from 'lucide-react';
-import { useAppContext } from '../context/AppContext';
+import { useAppContext, isTestMode } from '../context/AppContext';
 import { cn } from '../lib/utils';
-import { Role } from '../types';
+import { getRoleLabel, Role } from '../types';
 
 interface NavItem {
   label: string;
@@ -25,22 +25,22 @@ interface NavItem {
 }
 
 const roleNavMap: Record<Role, NavItem[]> = {
-  Citizen: [
+  CITIZEN: [
     { label: 'Home', path: '/', icon: Home },
     { label: 'Report Problem', path: '/report', icon: FileText },
     { label: 'My Reports', path: '/reports', icon: ClipboardList },
   ],
-  Government: [
+  GOVERNMENT: [
     { label: 'Dashboard', path: '/', icon: LayoutDashboard },
     { label: 'Problem Validation', path: '/validation', icon: CheckSquare },
     { label: 'Validated Problems', path: '/validated', icon: CheckCircle },
     { label: 'Project Oversight', path: '/projects', icon: Briefcase },
   ],
-  University: [
+  UNIVERSITY: [
     { label: 'Opportunities', path: '/', icon: GraduationCap },
     { label: 'Projects', path: '/projects', icon: Briefcase },
   ],
-  Industry: [
+  INDUSTRY: [
     { label: 'Opportunities', path: '/', icon: Building2 },
     { label: 'Collaborations', path: '/projects', icon: Handshake },
   ]
@@ -51,8 +51,9 @@ const sharedNav: NavItem[] = [
 ];
 
 export function Sidebar() {
-  const { role } = useAppContext();
+  const { role, authUser } = useAppContext();
   const navItems = roleNavMap[role];
+  const roleLabel = getRoleLabel(role);
 
   return (
     <aside className="w-64 bg-[#0F172A] border-r border-slate-800 flex flex-col h-full p-5 shrink-0">
@@ -68,7 +69,7 @@ export function Sidebar() {
       <nav className="flex-1 overflow-y-auto space-y-6">
         <div className="space-y-1">
           <p className="text-[10px] uppercase font-bold text-slate-500 tracking-widest mb-2 px-3">
-            {role} Access
+            {roleLabel} Access
           </p>
           {navItems.map((item) => (
             <NavLink
@@ -123,8 +124,8 @@ export function Sidebar() {
             D
           </div>
           <div>
-            <p className="text-xs font-bold text-slate-200">{role} User</p>
-            <p className="text-[10px] text-slate-500">Demo Account</p>
+            <p className="text-xs font-bold text-slate-200">{roleLabel} User</p>
+            <p className="text-[10px] text-slate-500">{isTestMode ? "Demo Mode" : (authUser ? "Authenticated" : "Unauthenticated")}</p>
           </div>
         </div>
       </div>

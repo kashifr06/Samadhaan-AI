@@ -163,7 +163,7 @@ export function ReportProblem() {
 
             <button 
               onClick={() => {
-                setRole('Government');
+                setRole('GOVERNMENT');
                 navigate('/');
               }}
               className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold px-6 py-2.5 rounded-lg transition-colors shadow-lg shadow-blue-600/20"

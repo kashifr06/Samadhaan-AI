@@ -214,7 +214,7 @@ export function ProjectWorkspace() {
                   <Users className="w-12 h-12 text-slate-600 mx-auto mb-4" />
                   <h4 className="text-lg font-bold text-slate-300 mb-2">Team Not Formed</h4>
                   <p className="text-sm text-slate-500 mb-6">The university has not assigned a student team to this project yet.</p>
-                  {(role === 'University' || role === 'Government') && (
+                  {(role === 'UNIVERSITY' || role === 'GOVERNMENT') && (
                     <button 
                       onClick={handleAddDemoTeam}
                       className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm rounded-lg transition-colors shadow-lg shadow-blue-600/20"

@@ -1,4 +1,24 @@
-export type Role = 'Citizen' | 'Government' | 'University' | 'Industry';
+export const USER_ROLES = ['CITIZEN', 'GOVERNMENT', 'UNIVERSITY', 'INDUSTRY'] as const;
+
+export type UserRole = typeof USER_ROLES[number];
+export type Role = UserRole;
+
+export const ROLE_LABELS: Record<UserRole, string> = {
+  CITIZEN: 'Citizen',
+  GOVERNMENT: 'Government',
+  UNIVERSITY: 'University',
+  INDUSTRY: 'Industry',
+};
+
+export function normalizeUserRole(value: unknown): UserRole | null {
+  if (typeof value !== 'string') return null;
+  const normalized = value.trim().toUpperCase();
+  return (USER_ROLES as readonly string[]).includes(normalized) ? normalized as UserRole : null;
+}
+
+export function getRoleLabel(role: UserRole): string {
+  return ROLE_LABELS[role];
+}
 
 export enum ProblemStatus {
   SUBMITTED = 'SUBMITTED',

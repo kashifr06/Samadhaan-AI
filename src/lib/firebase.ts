@@ -1,14 +1,46 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut as firebaseSignOut, onAuthStateChanged } from 'firebase/auth';
 
-const firebaseConfig = {
-  projectId: "cortex-856a1",
-  // In a real app we'd load these from (import.meta as any).env, 
-  // but to prevent breaking the build without full env vars, we provide mock/placeholder values for the web SDK
-  // We only strictly need projectId for the auth token if we aren't using specific other services client side
-  apiKey: (import.meta as any).env.VITE_FIREBASE_API_KEY || "AIzaSyFakeKeyPlaceholderForBuild",
-  authDomain: (import.meta as any).env.VITE_FIREBASE_AUTH_DOMAIN || "cortex-856a1.firebaseapp.com",
-};
+type FirebaseClientEnv = Partial<Record<
+  'VITE_FIREBASE_API_KEY' |
+  'VITE_FIREBASE_AUTH_DOMAIN' |
+  'VITE_FIREBASE_PROJECT_ID' |
+  'VITE_FIREBASE_STORAGE_BUCKET' |
+  'VITE_FIREBASE_MESSAGING_SENDER_ID' |
+  'VITE_FIREBASE_APP_ID' |
+  'PROD' |
+  'MODE',
+  string | boolean | undefined
+>>;
+
+const REQUIRED_FIREBASE_CLIENT_KEYS = [
+  'VITE_FIREBASE_API_KEY',
+  'VITE_FIREBASE_AUTH_DOMAIN',
+  'VITE_FIREBASE_PROJECT_ID',
+  'VITE_FIREBASE_STORAGE_BUCKET',
+  'VITE_FIREBASE_MESSAGING_SENDER_ID',
+  'VITE_FIREBASE_APP_ID',
+] as const;
+
+export function createFirebaseClientConfig(env: FirebaseClientEnv = (import.meta as any).env) {
+  const missing = REQUIRED_FIREBASE_CLIENT_KEYS.filter(key => !env[key]);
+  const isProduction = env.PROD === true || env.MODE === 'production';
+
+  if (isProduction && missing.length > 0) {
+    throw new Error(`Missing Firebase client configuration: ${missing.join(', ')}`);
+  }
+
+  return {
+    apiKey: String(env.VITE_FIREBASE_API_KEY || 'demo-api-key'),
+    authDomain: String(env.VITE_FIREBASE_AUTH_DOMAIN || 'demo.firebaseapp.com'),
+    projectId: String(env.VITE_FIREBASE_PROJECT_ID || 'demo-project'),
+    storageBucket: String(env.VITE_FIREBASE_STORAGE_BUCKET || 'demo.appspot.com'),
+    messagingSenderId: String(env.VITE_FIREBASE_MESSAGING_SENDER_ID || '000000000000'),
+    appId: String(env.VITE_FIREBASE_APP_ID || 'demo-app-id'),
+  };
+}
+
+const firebaseConfig = createFirebaseClientConfig();
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);

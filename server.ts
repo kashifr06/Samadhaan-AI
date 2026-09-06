@@ -1,18 +1,17 @@
 import express from 'express';
 import cors from 'cors';
 import path from 'path';
-import { initializeApp, applicationDefault } from 'firebase-admin/app';
 import { getFirestore } from 'firebase-admin/firestore';
 import { getAuth } from 'firebase-admin/auth';
 import { GoogleGenAI } from '@google/genai';
 import { createServer as createViteServer } from 'vite';
 import { handleAction } from './src/server/actions';
+import { initializeFirebaseAdmin } from './src/server/firebaseAdmin';
+import { isDemoModeEnabled, parseDemoRoleRequest } from './src/server/demoMode';
+import { normalizeUserRole } from './src/types';
 
 // Initialize Firebase Admin
-initializeApp({
-  credential: applicationDefault(),
-  projectId: 'cortex-856a1'
-});
+initializeFirebaseAdmin();
 const db = getFirestore();
 const auth = getAuth();
 
@@ -46,7 +45,7 @@ async function startServer() {
     try {
       const user = (req as any).user;
       const userRecord = await db.collection('samadhaan_users').doc(user.uid).get();
-      const userRole = userRecord.exists ? userRecord.data().role : 'CITIZEN';
+      const userRole = normalizeUserRole(userRecord.exists ? userRecord.data().role : undefined) || 'CITIZEN';
       const [problems, projects, teams, industryPartners, universities] = await Promise.all([
         db.collection('samadhaan_problems').get(),
         db.collection('samadhaan_projects').get(),
@@ -72,15 +71,18 @@ async function startServer() {
   
   // Explicit Demo Mode UX: Set role
   app.post('/api/samadhaan/demo/set-role', authenticate, async (req, res) => {
-    if (process.env.VITE_DEMO_MODE !== 'true' && process.env.DEMO_MODE !== 'true') {
+    if (!isDemoModeEnabled(process.env)) {
         return res.status(403).json({ error: 'Demo mode disabled' });
     }
     try {
       const user = (req as any).user;
-      const { role, entityId } = req.body;
+      const demoRoleRequest = parseDemoRoleRequest(req.body);
+      if (!demoRoleRequest) {
+        return res.status(400).json({ error: 'Invalid role' });
+      }
       await db.collection('samadhaan_users').doc(user.uid).set({
-        role,
-        entityId: entityId || null
+        role: demoRoleRequest.role,
+        entityId: demoRoleRequest.entityId
       }, { merge: true });
       res.json({ success: true });
     } catch (e) {

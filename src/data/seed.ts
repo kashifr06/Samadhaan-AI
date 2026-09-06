@@ -151,28 +151,5 @@ export const seededProblems: Problem[] = [
     governmentReview: {
       status: 'PENDING'
     }
-  },
-  {
-    id: 'PRB-003',
-    title: 'Waste accumulation near Market Area',
-    description: 'Uncollected waste is piling up causing health hazards and bad odor.',
-    category: 'Waste Management',
-    location: 'Ranchi, Jharkhand',
-    status: ProblemStatus.SUBMITTED,
-    submittedAt: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000).toISOString(),
-    submittedBy: 'Citizen 3',
-    aiAnalysis: {
-      category: 'Waste Management',
-      subCategory: 'Solid Waste',
-      priority: 'HIGH',
-      confidence: 96,
-      summary: 'Significant solid waste accumulation in a high-density commercial area.',
-      affectedPopulation: '2000+ estimated',
-      duplicateCheck: 'No similar active report found',
-      suggestedExpertise: ['Waste Management', 'Public Health', 'Environmental Engineering']
-    },
-    governmentReview: {
-      status: 'PENDING'
-    }
   }
 ];

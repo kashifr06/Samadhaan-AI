@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { auth, signIn, signOut } from '../lib/firebase';
 import { onAuthStateChanged, User } from 'firebase/auth';
-import { Problem, Role, University, UniversityInvitation, Project, StudentTeam, IndustryPartner, Milestone, ProblemStatus, ProjectStatus, isProjectReadyForDeployment } from '../types';
+import { Problem, Role, University, UniversityInvitation, Project, StudentTeam, IndustryPartner, Milestone, ProblemStatus, ProjectStatus, normalizeUserRole } from '../types';
 import { seededProblems, seededUniversities, seededIndustryPartners, seededProjects, seededTeams } from '../data/seed';
 
 export const isTestMode = (typeof import.meta !== 'undefined' && ((import.meta as any).env?.VITE_DEMO_MODE === 'true' || (import.meta as any).env?.MODE === 'test')) || (typeof process !== 'undefined' && process.env.NODE_ENV === 'test');
@@ -44,7 +44,7 @@ const AppContext = createContext<AppContextType | undefined>(undefined);
 
 export function AppProvider({ children }: { children: React.ReactNode }) {
   const [authUser, setAuthUser] = useState<User | null>(null);
-  const [role, setRoleState] = useState<Role>('Citizen');
+  const [role, setRoleState] = useState<Role>('CITIZEN');
   
   const [problems, setProblems] = useState<Problem[]>(seededProblems);
   const [universities, setUniversities] = useState<University[]>(seededUniversities);
@@ -71,7 +71,8 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         if (data.teams) setTeams(data.teams);
         if (data.industryPartners) setIndustryPartners(data.industryPartners);
         if (data.universities && data.universities.length > 0) setUniversities(data.universities);
-        if (data.userRole) setRoleState(data.userRole as Role);
+        const normalizedRole = normalizeUserRole(data.userRole);
+        if (normalizedRole) setRoleState(normalizedRole);
       }
     } catch (e) {
       console.error('Failed to fetch state', e);
@@ -89,7 +90,21 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const login = async () => {
-    try { await signIn(); } catch (e) { console.error(e); }
+    setIsLoading(true);
+    setError(null);
+    try { 
+      await signIn(); 
+    } catch (e: any) { 
+      if (e?.code === 'auth/cancelled-popup-request' || e?.code === 'auth/popup-closed-by-user') {
+        // User intentionally closed or cancelled, safe to ignore
+        console.warn('Sign-in popup closed by user.');
+      } else {
+        console.error('Login failed:', e);
+        setError(e?.message || 'Login failed');
+      }
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const logout = async () => {
@@ -103,7 +118,8 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
   const setRole = async (newRole: Role) => {
     if (isTestMode) {
-      setRoleState(newRole);
+      const normalizedRole = normalizeUserRole(newRole);
+      if (normalizedRole) setRoleState(normalizedRole);
       return;
     }
     if (!authUser) return;
@@ -112,7 +128,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       const res = await fetch('/api/samadhaan/demo/set-role', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
-          body: JSON.stringify({ role: newRole.toUpperCase() })
+          body: JSON.stringify({ role: newRole })
       });
       if (res.ok) {
         await fetchState();
