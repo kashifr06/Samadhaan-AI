@@ -6,6 +6,7 @@ import { ProblemStatus, ProjectStatus, Project, Milestone } from '../types';
 
 export function UniversityOpportunities() {
   const { problems, universities, acceptInvitation, declineInvitation, createProject, projects } = useAppContext();
+  const { isLoading } = useAppContext();
   const navigate = useNavigate();
   
   const [actionModal, setActionModal] = useState<{ type: 'ACCEPT' | 'DECLINE', invitationId: string } | null>(null);

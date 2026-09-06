@@ -60,6 +60,7 @@ describe('Phase 3 - University Matching Adversarial Tests', () => {
     act(() => { ctx.inviteUniversity('P-VAL', 'UNI-001', 'Please help'); });
     
     const p = ctx.problems.find((p: any) => p.id === 'P-VAL');
+    console.log('P-VAL state:', p);
     expect(p.invitations.length).toBe(1);
     expect(p.invitations[0].status).toBe('PENDING');
     expect(p.invitations[0].universityId).toBe('UNI-001');

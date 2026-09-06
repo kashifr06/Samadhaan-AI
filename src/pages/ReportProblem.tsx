@@ -6,7 +6,7 @@ import { ProblemStatus, Priority } from '../types';
 
 export function ReportProblem() {
   const navigate = useNavigate();
-  const { addProblem, analyzeProblem, setRole } = useAppContext();
+  const { addProblem, analyzeProblem, setRole, isLoading } = useAppContext();
   
   const [step, setStep] = useState<'FORM' | 'PROCESSING' | 'RESULT'>('FORM');
   const [formData, setFormData] = useState({
@@ -261,20 +261,20 @@ export function ReportProblem() {
 
         <div className="space-y-2 pt-2 border-t border-slate-800">
           <label className="text-[10px] uppercase font-bold text-slate-500 tracking-widest">Supporting Image (Optional)</label>
-          <div className="border border-dashed border-slate-700 rounded-xl p-8 flex flex-col items-center justify-center text-slate-500 bg-slate-900/50 hover:bg-slate-900 transition-colors cursor-pointer">
+          <div className="border border-dashed border-slate-700 rounded-xl p-6 flex flex-col items-center justify-center text-slate-500 bg-slate-900/50">
             <FileText className="w-6 h-6 mb-2 opacity-50" />
-            <span className="text-sm font-bold">Click to upload or drag & drop</span>
-            <span className="text-[10px] uppercase tracking-widest mt-1">JPG, PNG up to 5MB</span>
+            <span className="text-xs font-bold uppercase tracking-widest text-slate-600">Firebase Storage / evidence upload is deferred to a future phase.</span>
           </div>
         </div>
 
         <div className="pt-4 flex justify-end">
           <button 
             type="submit"
-            className="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold px-8 py-3 rounded-lg transition-colors flex items-center gap-2 shadow-lg shadow-cyan-500/20"
+            disabled={isLoading}
+            className={`bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold px-8 py-3 rounded-lg transition-colors flex items-center gap-2 shadow-lg shadow-cyan-500/20 ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
           >
-            Submit for AI Analysis
-            <ArrowRight className="w-4 h-4" />
+            {isLoading ? 'Submitting...' : 'Submit for AI Analysis'}
+            {!isLoading && <ArrowRight className="w-4 h-4" />}
           </button>
         </div>
       </form>

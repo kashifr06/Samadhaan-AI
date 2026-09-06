@@ -30,4 +30,7 @@ body {
   .border-blue {
     border-color: rgba(59, 130, 246, 0.3);
   }
+}@keyframes slide {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(300%); }
 }

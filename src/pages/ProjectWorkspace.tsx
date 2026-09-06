@@ -9,6 +9,7 @@ export function ProjectWorkspace() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { projects, problems, universities, industryPartners, teams, role, updateMilestone, createTeam, updateProject, deployProject } = useAppContext();
+  const { isLoading } = useAppContext();
   
   const [activeTab, setActiveTab] = useState<'overview' | 'team' | 'milestones' | 'impact'>('overview');
   const [milestoneDetail, setMilestoneDetail] = useState<string | null>(null);

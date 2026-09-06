@@ -1,0 +1,370 @@
+
+[1m[30m[46m RUN [49m[39m[22m [36mv5.0.0 [39m[90m/app/applet[39m
+
+[90mstdout[2m | src/Phase4.test.tsx[2m > [22m[2mPhase 4 - Project, Team & Industry Hardening[2m > [22m[2m1. updateProject strips privileged fields (status, progress, milestones)
+[22m[39maddProblem called for PROB-P1 isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/Phase4.test.tsx[2m > [22m[2mPhase 4 - Project, Team & Industry Hardening[2m > [22m[2m2. createTeam prevents fake project ID
+[22m[39maddProblem called for PROB-P2 isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/Phase4.test.tsx[2m > [22m[2mPhase 4 - Project, Team & Industry Hardening[2m > [22m[2m3. createTeam associates properly
+[22m[39maddProblem called for PROB-P3 isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/Phase4.test.tsx[2m > [22m[2mPhase 4 - Project, Team & Industry Hardening[2m > [22m[2m4. createTeam duplicate prevention
+[22m[39maddProblem called for PROB-P4 isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/Phase4.test.tsx[2m > [22m[2mPhase 4 - Project, Team & Industry Hardening[2m > [22m[2m5. createTeam payload injection defense
+[22m[39maddProblem called for PROB-P5 isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/Phase4.test.tsx[2m > [22m[2mPhase 4 - Project, Team & Industry Hardening[2m > [22m[2m7. joinIndustry fake industry ID
+[22m[39maddProblem called for PROB-P7 isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/Phase4.test.tsx[2m > [22m[2mPhase 4 - Project, Team & Industry Hardening[2m > [22m[2m8. joinIndustry valid state transition
+[22m[39maddProblem called for PROB-P8 isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/Phase4.test.tsx[2m > [22m[2mPhase 4 - Project, Team & Industry Hardening[2m > [22m[2m9. joinIndustry duplicate prevention
+[22m[39maddProblem called for PROB-P9 isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/Phase4.test.tsx[2m > [22m[2mPhase 4 - Project, Team & Industry Hardening[2m > [22m[2m10. updateMilestone reject invalid payload
+[22m[39maddProblem called for PROB-P10 isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/Phase4.test.tsx[2m > [22m[2mPhase 4 - Project, Team & Industry Hardening[2m > [22m[2m11. updateMilestone before industry joined fails
+[22m[39maddProblem called for PROB-P11 isTestMode= [33mtrue[39m
+
+ [31m×[39m src/Phase4.test.tsx[2m > [22mPhase 4 - Project, Team & Industry Hardening[2m > [22m1. updateProject strips privileged fields (status, progress, milestones)[32m 45[2mms[22m[39m
+[31m   → expected 'DEPLOYED' to be 'PROJECT_CREATED' // Object.is equality[39m
+ [31m×[39m src/Phase4.test.tsx[2m > [22mPhase 4 - Project, Team & Industry Hardening[2m > [22m2. createTeam prevents fake project ID[32m 7[2mms[22m[39m
+[31m   → expected 1 to be +0 // Object.is equality[39m
+ [32m✓[39m src/Phase4.test.tsx[2m > [22mPhase 4 - Project, Team & Industry Hardening[2m > [22m3. createTeam associates properly[32m 4[2mms[22m[39m
+ [31m×[39m src/Phase4.test.tsx[2m > [22mPhase 4 - Project, Team & Industry Hardening[2m > [22m4. createTeam duplicate prevention[32m 4[2mms[22m[39m
+[31m   → expected 'T4B' to be 'T4A' // Object.is equality[39m
+ [31m×[39m src/Phase4.test.tsx[2m > [22mPhase 4 - Project, Team & Industry Hardening[2m > [22m5. createTeam payload injection defense[32m 6[2mms[22m[39m
+[31m   → expected 'HACKED_UNI' to be 'UNI-001' // Object.is equality[39m
+ [32m✓[39m src/Phase4.test.tsx[2m > [22mPhase 4 - Project, Team & Industry Hardening[2m > [22m6. joinIndustry fake project ID[32m 2[2mms[22m[39m
+ [31m×[39m src/Phase4.test.tsx[2m > [22mPhase 4 - Project, Team & Industry Hardening[2m > [22m7. joinIndustry fake industry ID[32m 14[2mms[22m[39m
+[31m   → Invalid project state[39m
+ [31m×[39m src/Phase4.test.tsx[2m > [22mPhase 4 - Project, Team & Industry Hardening[2m > [22m8. joinIndustry valid state transition[32m 5[2mms[22m[39m
+[31m   → Invalid project state[39m
+ [31m×[39m src/Phase4.test.tsx[2m > [22mPhase 4 - Project, Team & Industry Hardening[2m > [22m9. joinIndustry duplicate prevention[32m 5[2mms[22m[39m
+[31m   → Invalid project state[39m
+ [31m×[39m src/Phase4.test.tsx[2m > [22mPhase 4 - Project, Team & Industry Hardening[2m > [22m10. updateMilestone reject invalid payload[32m 5[2mms[22m[39m
+[31m   → Invalid project state[39m
+[90mstdout[2m | src/Phase4.test.tsx[2m > [22m[2mPhase 4 - Project, Team & Industry Hardening[2m > [22m[2m12. updateMilestone sequential lock (M2 before M1 fails)
+[22m[39maddProblem called for PROB-P12 isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/Phase4.test.tsx[2m > [22m[2mPhase 4 - Project, Team & Industry Hardening[2m > [22m[2m13. updateMilestone sequential lock (M1 success)
+[22m[39maddProblem called for PROB-P13 isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/Phase4.test.tsx[2m > [22m[2mPhase 4 - Project, Team & Industry Hardening[2m > [22m[2m14. deployProject before READY_FOR_DEPLOYMENT fails
+[22m[39maddProblem called for PROB-P14 isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/Phase4.test.tsx[2m > [22m[2mPhase 4 - Project, Team & Industry Hardening[2m > [22m[2m15. deployProject succeeds on READY_FOR_DEPLOYMENT
+[22m[39maddProblem called for PROB-P15 isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/Phase4.test.tsx[2m > [22m[2mPhase 4 - Project, Team & Industry Hardening[2m > [22m[2m17. updateMilestone cross-project isolation
+[22m[39maddProblem called for PROB-PA isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/Phase4.test.tsx[2m > [22m[2mPhase 4 - Project, Team & Industry Hardening[2m > [22m[2m18. Object-reference mutation after joinIndustry
+[22m[39maddProblem called for PROB-P18 isTestMode= [33mtrue[39m
+
+ [31m×[39m src/Phase4.test.tsx[2m > [22mPhase 4 - Project, Team & Industry Hardening[2m > [22m11. updateMilestone before industry joined fails[32m 5[2mms[22m[39m
+[31m   → expected 'COMPLETED' to be 'PENDING' // Object.is equality[39m
+ [31m×[39m src/Phase4.test.tsx[2m > [22mPhase 4 - Project, Team & Industry Hardening[2m > [22m12. updateMilestone sequential lock (M2 before M1 fails)[32m 4[2mms[22m[39m
+[31m   → Invalid project state[39m
+ [31m×[39m src/Phase4.test.tsx[2m > [22mPhase 4 - Project, Team & Industry Hardening[2m > [22m13. updateMilestone sequential lock (M1 success)[32m 3[2mms[22m[39m
+[31m   → Invalid project state[39m
+ [31m×[39m src/Phase4.test.tsx[2m > [22mPhase 4 - Project, Team & Industry Hardening[2m > [22m14. deployProject before READY_FOR_DEPLOYMENT fails[32m 3[2mms[22m[39m
+[31m   → Invalid project state[39m
+ [31m×[39m src/Phase4.test.tsx[2m > [22mPhase 4 - Project, Team & Industry Hardening[2m > [22m15. deployProject succeeds on READY_FOR_DEPLOYMENT[32m 3[2mms[22m[39m
+[31m   → Invalid project state[39m
+ [32m✓[39m src/Phase4.test.tsx[2m > [22mPhase 4 - Project, Team & Industry Hardening[2m > [22m16. deployProject atomic failure on fake ID[32m 1[2mms[22m[39m
+ [31m×[39m src/Phase4.test.tsx[2m > [22mPhase 4 - Project, Team & Industry Hardening[2m > [22m17. updateMilestone cross-project isolation[32m 3[2mms[22m[39m
+[31m   → Invalid project state[39m
+ [31m×[39m src/Phase4.test.tsx[2m > [22mPhase 4 - Project, Team & Industry Hardening[2m > [22m18. Object-reference mutation after joinIndustry[32m 3[2mms[22m[39m
+[31m   → Invalid project state[39m
+ [32m✓[39m src/Phase4.test.tsx[2m > [22mPhase 4 - Project, Team & Industry Hardening[2m > [22m19-30. Various payload edge cases[32m 2[2mms[22m[39m
+[90mstdout[2m | src/Phase5.test.tsx[2m > [22m[2mPhase 5 - Deployment & Impact Hardening[2m > [22m[2m1. deployProject fails from PROJECT_CREATED
+[22m[39maddProblem called for PROB-P1 isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/Phase5.test.tsx[2m > [22m[2mPhase 5 - Deployment & Impact Hardening[2m > [22m[2m2. deployProject fails from INDUSTRY_JOINED
+[22m[39maddProblem called for PROB-P2 isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/Phase5.test.tsx[2m > [22m[2mPhase 5 - Deployment & Impact Hardening[2m > [22m[2m3. deployProject fails from IN_PROGRESS
+[22m[39maddProblem called for PROB-P3 isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/Phase5.test.tsx[2m > [22m[2mPhase 5 - Deployment & Impact Hardening[2m > [22m[2m4. deployProject ignores invalid arguments
+[22m[39maddProblem called for PROB-P4 isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/Phase5.test.tsx[2m > [22m[2mPhase 5 - Deployment & Impact Hardening[2m > [22m[2m5. updateProject strips deployment payload injection
+[22m[39maddProblem called for PROB-P5 isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/Phase5.test.tsx[2m > [22m[2mPhase 5 - Deployment & Impact Hardening[2m > [22m[2m6. deployProject atomic failure on fake project ID
+[22m[39maddProblem called for PROB-P6 isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/Phase5.test.tsx[2m > [22m[2mPhase 5 - Deployment & Impact Hardening[2m > [22m[2m7. deployment object integrity check
+[22m[39maddProblem called for PROB-P7 isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/Phase5.test.tsx[2m > [22m[2mPhase 5 - Deployment & Impact Hardening[2m > [22m[2m8. multiple deployments fail (idempotency)
+[22m[39maddProblem called for PROB-P8 isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/Phase5.test.tsx[2m > [22m[2mPhase 5 - Deployment & Impact Hardening[2m > [22m[2m9. object-reference attack on deployment fails (strict mode frozen)
+[22m[39maddProblem called for PROB-P9 isTestMode= [33mtrue[39m
+
+ [31m×[39m src/Phase5.test.tsx[2m > [22mPhase 5 - Deployment & Impact Hardening[2m > [22m1. deployProject fails from PROJECT_CREATED[32m 43[2mms[22m[39m
+[31m   → expected undefined to be 'PROJECT_CREATED' // Object.is equality[39m
+ [31m×[39m src/Phase5.test.tsx[2m > [22mPhase 5 - Deployment & Impact Hardening[2m > [22m2. deployProject fails from INDUSTRY_JOINED[32m 17[2mms[22m[39m
+[31m   → Invalid project state[39m
+ [31m×[39m src/Phase5.test.tsx[2m > [22mPhase 5 - Deployment & Impact Hardening[2m > [22m3. deployProject fails from IN_PROGRESS[32m 6[2mms[22m[39m
+[31m   → Invalid project state[39m
+ [31m×[39m src/Phase5.test.tsx[2m > [22mPhase 5 - Deployment & Impact Hardening[2m > [22m4. deployProject ignores invalid arguments[32m 5[2mms[22m[39m
+[31m   → Invalid project state[39m
+ [31m×[39m src/Phase5.test.tsx[2m > [22mPhase 5 - Deployment & Impact Hardening[2m > [22m5. updateProject strips deployment payload injection[32m 11[2mms[22m[39m
+[31m   → expected 'READY_FOR_DEPLOYMENT' to be 'PROJECT_CREATED' // Object.is equality[39m
+ [31m×[39m src/Phase5.test.tsx[2m > [22mPhase 5 - Deployment & Impact Hardening[2m > [22m6. deployProject atomic failure on fake project ID[32m 5[2mms[22m[39m
+[31m   → Invalid project state[39m
+ [31m×[39m src/Phase5.test.tsx[2m > [22mPhase 5 - Deployment & Impact Hardening[2m > [22m7. deployment object integrity check[32m 5[2mms[22m[39m
+[31m   → Invalid project state[39m
+ [31m×[39m src/Phase5.test.tsx[2m > [22mPhase 5 - Deployment & Impact Hardening[2m > [22m8. multiple deployments fail (idempotency)[32m 4[2mms[22m[39m
+[31m   → Invalid project state[39m
+[90mstdout[2m | src/Phase5.test.tsx[2m > [22m[2mPhase 5 - Deployment & Impact Hardening[2m > [22m[2m10. resetDemo deep clears everything
+[22m[39maddProblem called for PROB-P10 isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/Phase5.test.tsx[2m > [22m[2mPhase 5 - Deployment & Impact Hardening[2m > [22m[2m11. Direct status bypass via addProblem fails
+[22m[39maddProblem called for P11 isTestMode= [33mtrue[39m
+
+ [31m×[39m src/Phase5.test.tsx[2m > [22mPhase 5 - Deployment & Impact Hardening[2m > [22m9. object-reference attack on deployment fails (strict mode frozen)[32m 6[2mms[22m[39m
+[31m   → Invalid project state[39m
+ [31m×[39m src/Phase5.test.tsx[2m > [22mPhase 5 - Deployment & Impact Hardening[2m > [22m10. resetDemo deep clears everything[32m 5[2mms[22m[39m
+[31m   → Invalid project state[39m
+ [31m×[39m src/Phase5.test.tsx[2m > [22mPhase 5 - Deployment & Impact Hardening[2m > [22m11. Direct status bypass via addProblem fails[32m 4[2mms[22m[39m
+[31m   → expected { id: 'P11', title: 'T', …(4) } to be undefined[39m
+ [31m×[39m src/Phase5.test.tsx[2m > [22mPhase 5 - Deployment & Impact Hardening[2m > [22m12. runDemo executes securely through domain actions[32m 2[2mms[22m[39m
+[31m   → Cannot read properties of undefined (reading 'status')[39m
+[90mstdout[2m | src/AppContext.test.tsx[2m > [22m[2mPhase 1 - Foundation Integrity Tests[2m > [22m[2mvalid citizen submission (addProblem)
+[22m[39maddProblem called for PRB-999 isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/AppContext.test.tsx[2m > [22m[2mPhase 1 - Foundation Integrity Tests[2m > [22m[2mmissing/invalid required data (missing title)
+[22m[39maddProblem called for PRB-998 isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/AppContext.test.tsx[2m > [22m[2mPhase 1 - Foundation Integrity Tests[2m > [22m[2mmissing/invalid required data (simulate unauthorized later status)
+[22m[39maddProblem called for PRB-997 isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/AppContext.test.tsx[2m > [22m[2mPhase 1 - Foundation Integrity Tests[2m > [22m[2mduplicate ID
+[22m[39maddProblem called for PRB-999 isTestMode= [33mtrue[39m
+addProblem called for PRB-999 isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/AppContext.test.tsx[2m > [22m[2mPhase 1 - Foundation Integrity Tests[2m > [22m[2mAI analysis without government validation does not jump to GOVERNMENT_VALIDATED
+[22m[39maddProblem called for PRB-995 isTestMode= [33mtrue[39m
+
+ [32m✓[39m src/AppContext.test.tsx[2m > [22mPhase 1 - Foundation Integrity Tests[2m > [22mresetDemo must restore a clean deterministic initial state[32m 21[2mms[22m[39m
+ [32m✓[39m src/AppContext.test.tsx[2m > [22mPhase 1 - Foundation Integrity Tests[2m > [22mvalid citizen submission (addProblem)[32m 6[2mms[22m[39m
+ [31m×[39m src/AppContext.test.tsx[2m > [22mPhase 1 - Foundation Integrity Tests[2m > [22mmissing/invalid required data (missing title)[32m 11[2mms[22m[39m
+[31m   → expected { id: 'PRB-998', …(4) } to be undefined[39m
+ [31m×[39m src/AppContext.test.tsx[2m > [22mPhase 1 - Foundation Integrity Tests[2m > [22mmissing/invalid required data (simulate unauthorized later status)[32m 4[2mms[22m[39m
+[31m   → expected { id: 'PRB-997', …(5) } to be undefined[39m
+ [32m✓[39m src/AppContext.test.tsx[2m > [22mPhase 1 - Foundation Integrity Tests[2m > [22mduplicate ID[32m 5[2mms[22m[39m
+ [32m✓[39m src/AppContext.test.tsx[2m > [22mPhase 1 - Foundation Integrity Tests[2m > [22mAI analysis without government validation does not jump to GOVERNMENT_VALIDATED[32m 3[2mms[22m[39m
+ [31m×[39m src/AppContext.test.tsx[2m > [22mPhase 1 - Foundation Integrity Tests[2m > [22mrunDemo steps correctly through authoritative actions[32m 5[2mms[22m[39m
+[31m   → expected 'SUBMITTED' to be 'AI_ANALYZED' // Object.is equality[39m
+ [32m✓[39m src/AppContext.test.tsx[2m > [22mDashboard Integrity Tests[2m > [22mDashboard derives real counts and does not use fake hardcoded additions[32m 52[2mms[22m[39m
+[90mstdout[2m | src/Phase6.test.tsx[2m > [22m[2mPhase 6 - Final Adversarial Certification[2m > [22m[2m1. updateProblem prevents bypassing authoritative actions
+[22m[39maddProblem called for PRB-006 isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/Phase6.test.tsx[2m > [22m[2mPhase 6 - Final Adversarial Certification[2m > [22m[2m2. impossible problem state transitions are rejected
+[22m[39maddProblem called for P2 isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/Phase6.test.tsx[2m > [22m[2mPhase 6 - Final Adversarial Certification[2m > [22m[2m3. rejectProblem only works from PENDING_GOVERNMENT
+[22m[39maddProblem called for P3 isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/Phase6.test.tsx[2m > [22m[2mPhase 6 - Final Adversarial Certification[2m > [22m[2m4. acceptInvitation requires valid problem and pending invite
+[22m[39maddProblem called for PROB-P4 isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/Phase6.test.tsx[2m > [22m[2mPhase 6 - Final Adversarial Certification[2m > [22m[2m5. updateMilestone prevents completing out of order
+[22m[39maddProblem called for PROB-P5 isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/Phase6.test.tsx[2m > [22m[2mPhase 6 - Final Adversarial Certification[2m > [22m[2m6. createTeam prevents duplicate team creation
+[22m[39maddProblem called for PROB-P6 isTestMode= [33mtrue[39m
+
+ [31m×[39m src/Phase6.test.tsx[2m > [22mPhase 6 - Final Adversarial Certification[2m > [22m1. updateProblem prevents bypassing authoritative actions[32m 38[2mms[22m[39m
+[31m   → expected 'DEPLOYED' to be 'SUBMITTED' // Object.is equality[39m
+ [32m✓[39m src/Phase6.test.tsx[2m > [22mPhase 6 - Final Adversarial Certification[2m > [22m2. impossible problem state transitions are rejected[32m 8[2mms[22m[39m
+ [32m✓[39m src/Phase6.test.tsx[2m > [22mPhase 6 - Final Adversarial Certification[2m > [22m3. rejectProblem only works from PENDING_GOVERNMENT[32m 5[2mms[22m[39m
+ [31m×[39m src/Phase6.test.tsx[2m > [22mPhase 6 - Final Adversarial Certification[2m > [22m4. acceptInvitation requires valid problem and pending invite[32m 15[2mms[22m[39m
+[31m   → Invalid invite[39m
+ [31m×[39m src/Phase6.test.tsx[2m > [22mPhase 6 - Final Adversarial Certification[2m > [22m5. updateMilestone prevents completing out of order[32m 6[2mms[22m[39m
+[31m   → Invalid project state[39m
+ [31m×[39m src/Phase6.test.tsx[2m > [22mPhase 6 - Final Adversarial Certification[2m > [22m6. createTeam prevents duplicate team creation[32m 7[2mms[22m[39m
+[31m   → expected 2 to be 1 // Object.is equality[39m
+ [31m×[39m src/Phase6.test.tsx[2m > [22mPhase 6 - Final Adversarial Certification[2m > [22m7. runDemo handles full journey without errors[32m 3[2mms[22m[39m
+[31m   → Cannot read properties of undefined (reading 'status')[39m
+ [31m×[39m src/Phase6.test.tsx[2m > [22mPhase 6 - Final Adversarial Certification[2m > [22m8. malformed inputs do not crash context functions[32m 2[2mms[22m[39m
+[31m   → Cannot read properties of null (reading 'id')[39m
+[90mstdout[2m | src/Adversarial.test.tsx[2m > [22m[2mPhase 1.1 - Foundation Adversarial Tests[2m > [22m[2m2-7. Rejects missing, empty, or whitespace-only required fields
+[22m[39maddProblem called for P-1 isTestMode= [33mtrue[39m
+addProblem called for P-2 isTestMode= [33mtrue[39m
+addProblem called for P-3 isTestMode= [33mtrue[39m
+addProblem called for P-4 isTestMode= [33mtrue[39m
+addProblem called for P-5 isTestMode= [33mtrue[39m
+addProblem called for P-6 isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/Adversarial.test.tsx[2m > [22m[2mPhase 1.1 - Foundation Adversarial Tests[2m > [22m[2m12-19. Rejects attempt to inject privileged workflow state
+[22m[39maddProblem called for BAD-STATE-0 isTestMode= [33mtrue[39m
+addProblem called for BAD-STATE-1 isTestMode= [33mtrue[39m
+addProblem called for BAD-STATE-2 isTestMode= [33mtrue[39m
+addProblem called for BAD-STATE-3 isTestMode= [33mtrue[39m
+addProblem called for BAD-STATE-4 isTestMode= [33mtrue[39m
+addProblem called for BAD-STATE-5 isTestMode= [33mtrue[39m
+addProblem called for BAD-STATE-6 isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/Adversarial.test.tsx[2m > [22m[2mPhase 1.1 - Foundation Adversarial Tests[2m > [22m[2m20. Strips injected privileged fields (governmentReview, etc.)
+[22m[39maddProblem called for PRB-PRIV isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/Adversarial.test.tsx[2m > [22m[2mPhase 1.1 - Foundation Adversarial Tests[2m > [22m[2m24. Prevents external mutation through object reference after addProblem
+[22m[39maddProblem called for PRB-MUTABLE isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/Adversarial.test.tsx[2m > [22m[2mPhase 1.1 - Foundation Adversarial Tests[2m > [22m[2manalyzeProblem cannot directly produce GOVERNMENT_VALIDATED or jump states
+[22m[39maddProblem called for P-ANALYZE isTestMode= [33mtrue[39m
+
+ [31m×[39m src/Adversarial.test.tsx[2m > [22mPhase 1.1 - Foundation Adversarial Tests[2m > [22m2-7. Rejects missing, empty, or whitespace-only required fields[32m 41[2mms[22m[39m
+[31m   → expected 9 to be 3 // Object.is equality[39m
+ [31m×[39m src/Adversarial.test.tsx[2m > [22mPhase 1.1 - Foundation Adversarial Tests[2m > [22m8-10. Rejects null, undefined, or empty payload[32m 23[2mms[22m[39m
+[31m   → Cannot read properties of null (reading 'id')[39m
+ [31m×[39m src/Adversarial.test.tsx[2m > [22mPhase 1.1 - Foundation Adversarial Tests[2m > [22m12-19. Rejects attempt to inject privileged workflow state[32m 7[2mms[22m[39m
+[31m   → expected 10 to be 3 // Object.is equality[39m
+ [31m×[39m src/Adversarial.test.tsx[2m > [22mPhase 1.1 - Foundation Adversarial Tests[2m > [22m20. Strips injected privileged fields (governmentReview, etc.)[32m 4[2mms[22m[39m
+[31m   → expected { status: 'APPROVED' } to be undefined[39m
+ [32m✓[39m src/Adversarial.test.tsx[2m > [22mPhase 1.1 - Foundation Adversarial Tests[2m > [22m24. Prevents external mutation through object reference after addProblem[32m 4[2mms[22m[39m
+ [32m✓[39m src/Adversarial.test.tsx[2m > [22mPhase 1.1 - Foundation Adversarial Tests[2m > [22manalyzeProblem rejects nonexistent IDs and does not jump states[32m 3[2mms[22m[39m
+ [32m✓[39m src/Adversarial.test.tsx[2m > [22mPhase 1.1 - Foundation Adversarial Tests[2m > [22manalyzeProblem cannot directly produce GOVERNMENT_VALIDATED or jump states[32m 3[2mms[22m[39m
+[90mstdout[2m | src/GovValidation.test.tsx[2m > [22m[2mPhase 2 - Government Validation Adversarial Tests[2m > [22m[2m1-3. Valid approval, rejection, clarification
+[22m[39maddProblem called for P-APP isTestMode= [33mtrue[39m
+addProblem called for P-REJ isTestMode= [33mtrue[39m
+addProblem called for P-CLA isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/GovValidation.test.tsx[2m > [22m[2mPhase 2 - Government Validation Adversarial Tests[2m > [22m[2m4-6, 14-15. Wrong ID, nonexistent ID, wrong status transitions
+[22m[39maddProblem called for P-SUB isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/GovValidation.test.tsx[2m > [22m[2mPhase 2 - Government Validation Adversarial Tests[2m > [22m[2m7-13. Double actions and cross-transitions are rejected
+[22m[39maddProblem called for P-DBL isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/GovValidation.test.tsx[2m > [22m[2mPhase 2 - Government Validation Adversarial Tests[2m > [22m[2m16. Whitespace-only review data is handled
+[22m[39maddProblem called for P-WHITE isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/GovValidation.test.tsx[2m > [22m[2mPhase 2 - Government Validation Adversarial Tests[2m > [22m[2m17. Payload injection is ignored
+[22m[39maddProblem called for P-INJ isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/GovValidation.test.tsx[2m > [22m[2mPhase 2 - Government Validation Adversarial Tests[2m > [22m[2m18. Object-reference mutation after action
+[22m[39maddProblem called for P-REF isTestMode= [33mtrue[39m
+
+ [32m✓[39m src/GovValidation.test.tsx[2m > [22mPhase 2 - Government Validation Adversarial Tests[2m > [22m1-3. Valid approval, rejection, clarification[32m 63[2mms[22m[39m
+ [32m✓[39m src/GovValidation.test.tsx[2m > [22mPhase 2 - Government Validation Adversarial Tests[2m > [22m4-6, 14-15. Wrong ID, nonexistent ID, wrong status transitions[32m 4[2mms[22m[39m
+ [32m✓[39m src/GovValidation.test.tsx[2m > [22mPhase 2 - Government Validation Adversarial Tests[2m > [22m7-13. Double actions and cross-transitions are rejected[32m 4[2mms[22m[39m
+ [31m×[39m src/GovValidation.test.tsx[2m > [22mPhase 2 - Government Validation Adversarial Tests[2m > [22m16. Whitespace-only review data is handled[32m 11[2mms[22m[39m
+[31m   → expected '   \n   ' to be '' // Object.is equality[39m
+ [31m×[39m src/GovValidation.test.tsx[2m > [22mPhase 2 - Government Validation Adversarial Tests[2m > [22m17. Payload injection is ignored[32m 7[2mms[22m[39m
+[31m   → expected { status: 'REJECTED', …(2) } to be '' // Object.is equality[39m
+ [32m✓[39m src/GovValidation.test.tsx[2m > [22mPhase 2 - Government Validation Adversarial Tests[2m > [22m18. Object-reference mutation after action[32m 3[2mms[22m[39m
+ [32m✓[39m src/GovValidation.test.tsx[2m > [22mPhase 2 - Government Validation Adversarial Tests[2m > [22m20. University matching gate[32m 2[2mms[22m[39m
+[90mstdout[2m | src/UniversityMatching.test.tsx[2m > [22m[2mPhase 3 - University Matching Adversarial Tests[2m > [22m[2m1-3. Matching gate: reject invite before GOVERNMENT_VALIDATED
+[22m[39maddProblem called for P-SUB isTestMode= [33mtrue[39m
+addProblem called for P-AI isTestMode= [33mtrue[39m
+addProblem called for P-PEND isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/UniversityMatching.test.tsx[2m > [22m[2mPhase 3 - University Matching Adversarial Tests[2m > [22m[2m4. Valid invitation creation
+[22m[39maddProblem called for P-VAL isTestMode= [33mtrue[39m
+P-VAL state: {
+  id: [32m'P-VAL'[39m,
+  title: [32m'T'[39m,
+  description: [32m'D'[39m,
+  category: [32m'C'[39m,
+  location: [32m'L'[39m,
+  status: [32m'GOVERNMENT_VALIDATED'[39m,
+  aiAnalysis: {
+    category: [32m'C'[39m,
+    subCategory: [32m'Assessed'[39m,
+    priority: [32m'HIGH'[39m,
+    confidence: [33m85[39m,
+    summary: [32m'Analyzed successfully.'[39m,
+    duplicateCheck: [33mfalse[39m,
+    suggestedExpertise: [ [32m'AI'[39m, [32m'Data'[39m ]
+  },
+  governmentReview: {
+    status: [32m'APPROVED'[39m,
+    comments: [32m'Valid'[39m,
+    reviewedAt: [32m'2026-09-05T22:21:49.440Z'[39m
+  },
+  invitations: [
+    {
+      id: [32m'INV-1788646909440'[39m,
+      problemId: [32m'P-VAL'[39m,
+      universityId: [32m'UNI-001'[39m,
+      universityName: [32m'University'[39m,
+      matchScore: [33m94[39m,
+      status: [32m'PENDING'[39m,
+      sentAt: [32m'2026-09-05T22:21:49.440Z'[39m,
+      message: [32m'Please help'[39m
+    }
+  ]
+}
+
+[90mstdout[2m | src/UniversityMatching.test.tsx[2m > [22m[2mPhase 3 - University Matching Adversarial Tests[2m > [22m[2m6. Duplicate invitation protection
+[22m[39maddProblem called for P-DUP isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/UniversityMatching.test.tsx[2m > [22m[2mPhase 3 - University Matching Adversarial Tests[2m > [22m[2m8. Accept invitation atomic transition
+[22m[39maddProblem called for P-ACC isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/UniversityMatching.test.tsx[2m > [22m[2mPhase 3 - University Matching Adversarial Tests[2m > [22m[2m9. Decline invitation transition
+[22m[39maddProblem called for P-DEC isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/UniversityMatching.test.tsx[2m > [22m[2mPhase 3 - University Matching Adversarial Tests[2m > [22m[2m12. University ID Integrity (fake university)
+[22m[39maddProblem called for P-FAKE isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/UniversityMatching.test.tsx[2m > [22m[2mPhase 3 - University Matching Adversarial Tests[2m > [22m[2m14. Project Creation Gate (reject before acceptance)
+[22m[39maddProblem called for P-PROJ isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/UniversityMatching.test.tsx[2m > [22m[2mPhase 3 - University Matching Adversarial Tests[2m > [22m[2m15. Project Creation Success
+[22m[39maddProblem called for P-PROJ-S isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/UniversityMatching.test.tsx[2m > [22m[2mPhase 3 - University Matching Adversarial Tests[2m > [22m[2m16. Duplicate project creation prevented
+[22m[39maddProblem called for P-DUP-PROJ isTestMode= [33mtrue[39m
+
+ [32m✓[39m src/UniversityMatching.test.tsx[2m > [22mPhase 3 - University Matching Adversarial Tests[2m > [22m1-3. Matching gate: reject invite before GOVERNMENT_VALIDATED[32m 67[2mms[22m[39m
+ [32m✓[39m src/UniversityMatching.test.tsx[2m > [22mPhase 3 - University Matching Adversarial Tests[2m > [22m4. Valid invitation creation[32m 6[2mms[22m[39m
+ [32m✓[39m src/UniversityMatching.test.tsx[2m > [22mPhase 3 - University Matching Adversarial Tests[2m > [22m6. Duplicate invitation protection[32m 5[2mms[22m[39m
+ [32m✓[39m src/UniversityMatching.test.tsx[2m > [22mPhase 3 - University Matching Adversarial Tests[2m > [22m8. Accept invitation atomic transition[32m 4[2mms[22m[39m
+ [32m✓[39m src/UniversityMatching.test.tsx[2m > [22mPhase 3 - University Matching Adversarial Tests[2m > [22m9. Decline invitation transition[32m 4[2mms[22m[39m
+ [32m✓[39m src/UniversityMatching.test.tsx[2m > [22mPhase 3 - University Matching Adversarial Tests[2m > [22m12. University ID Integrity (fake university)[32m 3[2mms[22m[39m
+ [32m✓[39m src/UniversityMatching.test.tsx[2m > [22mPhase 3 - University Matching Adversarial Tests[2m > [22m14. Project Creation Gate (reject before acceptance)[32m 3[2mms[22m[39m
+ [32m✓[39m src/UniversityMatching.test.tsx[2m > [22mPhase 3 - University Matching Adversarial Tests[2m > [22m15. Project Creation Success[32m 3[2mms[22m[39m
+ [32m✓[39m src/UniversityMatching.test.tsx[2m > [22mPhase 3 - University Matching Adversarial Tests[2m > [22m16. Duplicate project creation prevented[32m 5[2mms[22m[39m
+[90mstdout[2m | src/UniversityMatching.test.tsx[2m > [22m[2mPhase 3 - University Matching Adversarial Tests[2m > [22m[2m17. Accept invalid invitation IDs
+[22m[39maddProblem called for P-INV isTestMode= [33mtrue[39m
+
+[90mstdout[2m | src/UniversityMatching.test.tsx[2m > [22m[2mPhase 3 - University Matching Adversarial Tests[2m > [22m[2m18. Decline invalid invitation IDs
+[22m[39maddProblem called for P-INV2 isTestMode= [33mtrue[39m
+
+ [32m✓[39m src/UniversityMatching.test.tsx[2m > [22mPhase 3 - University Matching Adversarial Tests[2m > [22m17. Accept invalid invitation IDs[32m 4[2mms[22m[39m
+ [32m✓[39m src/UniversityMatching.test.tsx[2m > [22mPhase 3 - University Matching Adversarial Tests[2m > [22m18. Decline invalid invitation IDs[32m 3[2mms[22m[39m
+ [32m✓[39m src/server/Backend.test.ts[2m > [22mBackend Actions - Adversarial[2m > [22m1. unauthenticated actions rejected[32m 6[2mms[22m[39m
+ [32m✓[39m src/server/Backend.test.ts[2m > [22mBackend Actions - Adversarial[2m > [22m2. Citizen cannot validate problem[32m 1[2mms[22m[39m
+ [32m✓[39m src/server/Backend.test.ts[2m > [22mBackend Actions - Adversarial[2m > [22m3. Citizen cannot deploy project[32m 1[2mms[22m[39m
+ [32m✓[39m src/server/Backend.test.ts[2m > [22mBackend Actions - Adversarial[2m > [22m4. Government can validate valid pending problem[32m 1[2mms[22m[39m
+ [32m✓[39m src/server/Backend.test.ts[2m > [22mBackend Actions - Adversarial[2m > [22m5. University identity cannot accept another university's invitation[32m 1[2mms[22m[39m
+ [32m✓[39m src/server/Backend.test.ts[2m > [22mBackend Actions - Adversarial[2m > [22m6. fake university invitation rejected[32m 1[2mms[22m[39m
+ [32m✓[39m src/server/Backend.test.ts[2m > [22mBackend Actions - Adversarial[2m > [22m7. duplicate invitation rejected[32m 1[2mms[22m[39m
+ [32m✓[39m src/server/Backend.test.ts[2m > [22mBackend Actions - Adversarial[2m > [22m8. project creation without accepted invitation rejected[32m 1[2mms[22m[39m
+ [32m✓[39m src/server/Backend.test.ts[2m > [22mBackend Actions - Adversarial[2m > [22m9. project creation with fake university rejected[32m 2[2mms[22m[39m
+ [32m✓[39m src/server/Backend.test.ts[2m > [22mBackend Actions - Adversarial[2m > [22m10. direct project status injection rejected[32m 1[2mms[22m[39m
+ [32m✓[39m src/server/Backend.test.ts[2m > [22mBackend Actions - Adversarial[2m > [22m11. milestone completion out of order rejected[32m 1[2mms[22m[39m
+ [32m✓[39m src/server/Backend.test.ts[2m > [22mBackend Actions - Adversarial[2m > [22m12. deployment before READY_FOR_DEPLOYMENT rejected[32m 1[2mms[22m[39m
+ [32m✓[39m src/server/Backend.test.ts[2m > [22mBackend Actions - Adversarial[2m > [22m13. malformed Gemini output handled safely[32m 0[2mms[22m[39m
+
+[2m Test Files [22m [1m[31m6 failed[39m[22m[2m | [22m[1m[32m2 passed[39m[22m[90m (8)[39m
+[2m      Tests [22m [1m[31m42 failed[39m[22m[2m | [22m[1m[32m43 passed[39m[22m[90m (85)[39m
+[2m   Start at [22m 22:21:32
+[2m   Duration [22m 19.50s[2m (environment 76%, import 17%, tests 5%, transform 3%)[22m
+
+[2mEnvironment [22m [33mjsdom was created 8 times[39m[2m · 12.63s total, 76% of tracked time[22m
+[2m            [22m [2mcreate it once per worker with [22m[33mpool: 'vmThreads'[39m[2m (keeps per-file isolation) or [22m[33misolate: false[39m[2m (shares it across files)[22m
+[2m            [22m [2mlearn more: https://vitest.dev/guide/improving-performance#test-environments[22m
+

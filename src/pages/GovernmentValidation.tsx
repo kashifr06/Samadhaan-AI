@@ -9,6 +9,7 @@ export function GovernmentValidation() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { problems, validateProblem, rejectProblem, requestClarification } = useAppContext();
+  const { isLoading } = useAppContext();
   
   const [actionModal, setActionModal] = useState<'VALIDATE' | 'CLARIFY' | 'REJECT' | null>(null);
   const [note, setNote] = useState('');
